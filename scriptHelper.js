@@ -100,21 +100,26 @@ function formSubmission(document, list,  pilotName, copilotName, fuelLevel, carg
    pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`
 
     
+   validateInput(formField) 
+    if (fuelLevel.value < 10000) {
+      list.style.visiblity === "visible"
+      fuelStatus.value === "Fuel level too low for launch"
+      document.getElementById(launchStatus).style.color === "rgb(199, 37, 78)"
+      document.getElementById(launchStatus).textContent === "Shuttle not ready for launch"
+    } else if (cargoMass.value > 10000) {
+      list.style.visibility === "visible"
+      document.getElementById(cargoStatus) === "Cargo mass too heavy for launch"
+      document.getElementById(launchStatus).style.color === "rgb(199, 37, 78)"
+      document.getElementById(launchStatus).textContent === "Shuttle not ready for launch"
+    } else {
+      list.style.visibility === "visible"
+      document.getElementById(launchStatus).style.color === "rgb(65, 159, 106)"
+      document.getElementById(launchStatus).textContent === "Shuttle is ready for launch"
+    }
+      
+  
 
-    validateInput(formField) {
-       if (fuelLevel.value < 10000 ) {
-           list.style.visibility === "visible" && fuelStatus.value === "Fuel level too low for launch"
-           document.getElementById(launchStatus).style.color === "rgb(199, 37, 78)" && document.getElementById(launchStatus).textContent === "Shuttle not ready for launch"
-           
-        } else if (cargoMass.value > 10000) {
-            list.style.visibility === "visible" && document.getElementById(cargoStatus) === "Cargo mass too heavy for launch"
-            document.getElementById(launchStatus).style.color === "rgb(199, 37, 78)" && document.getElementById(launchStatus).textContent === "Shuttle not ready for launch"
-            
-        }  else {
-            list.style.visibility === "visible"
-            document.getElementById(launchStatus).style.color === "rgb(65, 159, 106)" && document.getElementById(launchStatus).textContent === "Shuttle is ready for launch"
-        }
-    }   
+   
     
 } 
     

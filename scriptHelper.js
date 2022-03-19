@@ -21,7 +21,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
 function validateInput(testInput) {
     //alert("validate input")
-    window.addEventListener("load", function() {
+    //window.addEventListener("load", function() {
         let form = document.querySelector("form");
         button.addEventListener("submit", function(event) {
             console.log("Im here")
@@ -52,7 +52,7 @@ function validateInput(testInput) {
 
           }
         });
-      });
+      //});
 
 }
 
@@ -94,7 +94,7 @@ function validateInput(testInput) {
 function formSubmission(document, list,  pilotName, copilotName, fuelLevel, cargoLevel) {
    //validateInput(formField)
    list = document.getElementById("faultyItems");
-   let pilotStatus = docment.getElementById("pilotStatus")
+   let pilotStatus = document.getElementById("pilotStatus")
    let copilotStatus = document.getElementById("copilotStatus")
    copilotStatus.textContent = `Copilot ${copilotName} is ready for launch`
    pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`

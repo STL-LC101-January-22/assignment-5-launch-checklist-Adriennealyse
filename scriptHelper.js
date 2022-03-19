@@ -93,7 +93,7 @@ function validateInput(testInput) {
 
 function formSubmission(document, list,  pilotName, copilotName, fuelLevel, cargoLevel) {
    //validateInput(formField)
-   let list = document.getElementById("faultyItems");
+   list = document.getElementById("faultyItems");
    let pilotStatus = docment.getElementById("pilotStatus")
    let copilotStatus = document.getElementById("copilotStatus")
    copilotStatus.textContent = `Copilot ${copilotName} is ready for launch`

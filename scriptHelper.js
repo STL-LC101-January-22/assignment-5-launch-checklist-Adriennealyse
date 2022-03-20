@@ -42,18 +42,19 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
    cargoStatus = document.getElementById("cargoStatus")
    let launchStatus = document.getElementById("launchStatus")
 
+   copilotStatus.textContent = `Copilot ${copilotName} is ready for launch`
+   pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`
+   list.style.visbility = "hidden"
+
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
       alert("All fields are required!");
       
     } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot === "Is a Number") || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
-      //alert("Please provide valid information");
+      alert("Please provide valid information");
     }
    
     //Call validateInput here(check for empty,check for type)
 
-   list.style.visbility = "hidden"
-   copilotStatus.textContent = `Copilot ${copilotName} is ready for launch`
-   pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`
 
     
     if (fuelLevel.value < 10000) {

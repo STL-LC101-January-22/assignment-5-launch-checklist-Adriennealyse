@@ -20,7 +20,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 //. validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate.
 
 function validateInput(testInput) {
-  window.addEventListener("load", function() {
+  //window.addEventListener("load", function() {
     let form = document.querySelector("form");
     form.addEventListener("submit", function(event) {
        let pilotName = document.querySelector("input[name=pilotName]");
@@ -43,7 +43,7 @@ function validateInput(testInput) {
           return "Not a Number"
         }
     });
- });
+ //});
 }
 
 
@@ -57,11 +57,12 @@ function formSubmission(document, list,  pilotName, copilotName, fuelLevel, carg
    let cargoStatus = document.getElementById("cargoStatus")
    let launchStatus = document.getElementById("launchStatus")
 
+    list.style.visbility = "hidden"
    copilotStatus.textContent = `Copilot ${copilotName} is ready for launch`
    pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`
 
     
-   validateInput(formField) 
+   validateInput(testInput) 
     if (fuelLevel.value < 10000) {
       list.style.visiblity = "visible"
       fuelStatus.textContent = "Fuel level too low for launch"

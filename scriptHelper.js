@@ -4,51 +4,36 @@ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
+   let div = document.getElementById("missionTarget");
+   div.innerHTML =
    `
                 <h2>Mission Destination</h2>
                 <ol>
-                    <li>Name: ${thePlanet.name} </li>
-                    <li>Diameter: </li>
+                    <li>Name: ${name} </li>
+                    <li>Diameter: ${diameter} </li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth: ${distance}</li>
+                    <li>Number of Moons: ${moons}</li>
                 </ol>
-                <img src="">
-   </img>*/`
+                <img src="${imageUrl}">
+   </img>`
 }
 
 //. validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate.
 
 function validateInput(testInput) {
-  //window.addEventListener("load", function() {
-    //let form = document.getElementById("testForm");
-    button.addEventListener("submit", function(event) {
-       let pilotName = document.querySelector("input[name=pilotName]");
-       let copilotName = document.querySelector("input[name=copilotName]");
-       let fuelLevel = document.querySelector("input[name=fuelLevel]");
-       let cargoMass = document.querySelector("input[name=cargoMass]");
-       
-       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
-          alert("All fields are required!");
-          // stop the form submission
-          event.preventDefault();
-          return "Empty"
-
-        } else if (typeof(pilotName.value) === Number || typeof(copilotName.value) === Number ) {
-          event.preventDefault();
-          return "Is a Number"
-
-        } else if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
-          event.preventDefault();
-          return "Not a Number"
-        }
-    });
- //});
+  if (testInput === "") {
+    return "Empty";
+    } else if (isNaN(testInput) === false ) {
+      return "Is a Number";
+    } else if (isNaN(testInput) === true) {
+      return "Not a Number";
+    }
 }
 
 
 
-function formSubmission(document, list,  pilotName, copilotName, fuelLevel, cargoStatus) {
+function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) {
    //validateInput(formField)
    list = document.getElementById("faultyItems");
    let pilotStatus = document.getElementById("pilotStatus")
@@ -57,12 +42,20 @@ function formSubmission(document, list,  pilotName, copilotName, fuelLevel, carg
    cargoStatus = document.getElementById("cargoStatus")
    let launchStatus = document.getElementById("launchStatus")
 
-    list.style.visbility = "hidden"
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
+      alert("All fields are required!");
+      
+    } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot === "Is a Number") || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
+      alert("Please provide valid information");
+    }
+   
+    //Call validateInput here(check for empty,check for type)
+
+   list.style.visbility = "hidden"
    copilotStatus.textContent = `Copilot ${copilotName} is ready for launch`
    pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`
 
     
-   validateInput() 
     if (fuelLevel.value < 10000) {
       list.style.visiblity = "visible"
       fuelStatus.textContent = "Fuel level too low for launch"
@@ -101,8 +94,6 @@ async function myFetch() {
      return response.json() 
   });
 
-    
-      //return planetsReturned.json(); 
 
   return planetsReturned
 }

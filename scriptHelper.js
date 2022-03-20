@@ -62,7 +62,7 @@ function formSubmission(document, list,  pilotName, copilotName, fuelLevel, carg
    pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`
 
     
-   validateInput(testInput) 
+   validateInput() 
     if (fuelLevel.value < 10000) {
       list.style.visiblity = "visible"
       fuelStatus.textContent = "Fuel level too low for launch"

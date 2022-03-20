@@ -42,8 +42,8 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
    cargoStatus = document.getElementById("cargoStatus")
    let launchStatus = document.getElementById("launchStatus")
 
-   copilotStatus.textContent = `Copilot ${copilotName} is ready for launch`
-   pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`
+   copilotStatus.textContent = `Copilot ${copilot} is ready for launch`
+   pilotStatus.textContent = `Pilot ${pilot} is ready to launch`
    list.style.visbility = "hidden"
 
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {

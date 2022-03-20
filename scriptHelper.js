@@ -4,17 +4,17 @@ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
-   /*
+   `
                 <h2>Mission Destination</h2>
                 <ol>
-                    <li>Name: </li>
+                    <li>Name: ${thePlanet.name} </li>
                     <li>Diameter: </li>
                     <li>Star: ${star}</li>
                     <li>Distance from Earth: </li>
                     <li>Number of Moons: </li>
                 </ol>
                 <img src="">
-   </img>*/
+   </img>*/`
 }
 
 //. validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate.
@@ -22,7 +22,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 function validateInput(testInput) {
   //window.addEventListener("load", function() {
     //let form = document.getElementById("testForm");
-    //button.addEventListener("submit", function(event) {
+    button.addEventListener("submit", function(event) {
        let pilotName = document.querySelector("input[name=pilotName]");
        let copilotName = document.querySelector("input[name=copilotName]");
        let fuelLevel = document.querySelector("input[name=fuelLevel]");
@@ -42,7 +42,7 @@ function validateInput(testInput) {
           event.preventDefault();
           return "Not a Number"
         }
-    //});
+    });
  //});
 }
 
@@ -82,7 +82,7 @@ function formSubmission(document, list,  pilotName, copilotName, fuelLevel, carg
       pilotStatus.textContent = "Pilot Blake is ready for launch"
       copilotStatus.textContent = "Co-pilot Chris is ready for launch"
       fuelStatus.textContent = "Fuel level high enough for launch"
-      cargoStatus = "Cargo mass low enough for launch"
+      cargoStatus.textContent = "Cargo mass low enough for launch"
     }
       
   

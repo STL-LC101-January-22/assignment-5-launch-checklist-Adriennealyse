@@ -20,101 +20,68 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 //. validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate.
 
 function validateInput(testInput) {
-    //alert("validate input")
-    //window.addEventListener("load", function() {
-        let form = document.querySelector("form");
-        button.addEventListener("submit", function(event) {
-            console.log("Im here")
-          let pilotName = document.querySelector("input[name=pilotName]");
-          let copilotName = document.querySelector("input[name=copilotName]");
-          let fuelLevel = document.querySelector("input[name=fuelLevel]");
-          let cargoMass = document.querySelector("input[name=cargoMass]");
-            
-          if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "" ) {
-            alert("All fields are required!");
-            // stop the form submission
-            event.preventDefault();
-            return "Empty"
+  window.addEventListener("load", function() {
+    let form = document.querySelector("form");
+    form.addEventListener("submit", function(event) {
+       let pilotName = document.querySelector("input[name=pilotName]");
+       let copilotName = document.querySelector("input[name=copilotName]");
+       let fuelLevel = document.querySelector("input[name=fuelLevel]");
+       let cargoMass = document.querySelector("input[name=cargoMass]");
+       
+       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
+          alert("All fields are required!");
+          // stop the form submission
+          event.preventDefault();
+          return "Empty"
 
-          } else if (typeof(pilotName.value) === Number || typeof(copilotName.value) === Number) {
-            alert("Invalid input!");
-            // stop the form submission
-            event.preventDefault();
-            return "Is a Number"
+        } else if (typeof(pilotName.value) === Number || typeof(copilotName.value) === Number ) {
+          event.preventDefault();
+          return "Is a Number"
 
-          } else if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
-            alert("Input should be a number!");
-            // stop the form submission
-            event.preventDefault();
-            return "Not a Number"
-
-          } else { 
-
-          }
-        });
-      //});
-
+        } else if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
+          event.preventDefault();
+          return "Not a Number"
+        }
+    });
+ });
 }
 
-/*function validateInput(formField) {
 
-       //button.addEventListener("click", function() {
-        
-        let form = document.querySelector("form");
-        //let inputResponse = ""
-        button.addEventListener("click", function(event) {
-            let pilotName = document.querySelector("input[name=pilotName]");
-            let copilotName = document.querySelector("input[name=copilotName]");
-            let fuelLevel = document.querySelector("input[name=fuelLevel]");
-            let cargoMass = document.querySelector("input[name=cargoMass]");
-
-            if (pilotName === "" || copilotName === "" || fuelLevel === "" || cargoMass === "") {
-                alert("All fields are required!");
-                event.preventDefault();
-
-                return "Empty"
-
-            } else if (typeof(pilotName.value) !== String || typeof(copilotName.value) !== String) {
-                alert("Is a Number");
-                event.preventDefault();
-
-                return "Is a Number"
-
-            } else if (isNan(fuelLevel.value) == true || cargoMass.value.isNaN) {
-                alert("Not a Number");
-                event.preventDefault();
-                
-                return "Not a Number"
-            }
-            formSubmission(form, pilotName, copilotName, fuelLevel, cargoMass  )
-         });
-    //});
-}*/
 
 function formSubmission(document, list,  pilotName, copilotName, fuelLevel, cargoLevel) {
    //validateInput(formField)
    list = document.getElementById("faultyItems");
    let pilotStatus = document.getElementById("pilotStatus")
    let copilotStatus = document.getElementById("copilotStatus")
+   let fuelStatus = document.getElementById("fuelStatus")
+   let cargoStatus = document.getElementById("cargoStatus")
+   let launchStatus = document.getElementById("launchStatus")
+
    copilotStatus.textContent = `Copilot ${copilotName} is ready for launch`
    pilotStatus.textContent = `Pilot ${pilotName} is ready to launch`
 
     
    validateInput(formField) 
     if (fuelLevel.value < 10000) {
-      list.style.visiblity === "visible"
-      fuelStatus.value === "Fuel level too low for launch"
-      document.getElementById(launchStatus).style.color === "rgb(199, 37, 78)"
-      document.getElementById(launchStatus).textContent === "Shuttle not ready for launch"
+      list.style.visiblity = "visible"
+      fuelStatus.textContent = "Fuel level too low for launch"
+      launchStatus.textContent = "Shuttle not ready for launch"
+      launchStatus.style.color = "rgb(199, 37, 78)"
+      
     } else if (cargoMass.value > 10000) {
-      list.style.visibility === "visible"
-      document.getElementById(cargoStatus) === "Cargo mass too heavy for launch"
-      document.getElementById(launchStatus).style.color === "rgb(199, 37, 78)"
-      document.getElementById(launchStatus).textContent === "Shuttle not ready for launch"
+      list.style.visibility = "visible"
+      cargoStatus.textContent = "Cargo mass too heavy for launch"
+      launchStatus.textContent = "Shuttle not ready for launch"
+      launchStatus.style.color = "rgb(199, 37, 78)"
+      
     } else {
-      list.style.visibility === "visible"
-      document.getElementById(launchStatus).style.color === "rgb(65, 159, 106)"
-      document.getElementById(launchStatus).textContent === "Shuttle is ready for launch"
+      list.style.visibility = "visible"
+      launchStatus.textContent = "Shuttle is Ready for Launch"
+      launchStatus.style.color = "rgb(65, 159, 106)"
+      pilotStatus.textContent = "Pilot Blake is ready for launch"
+      copilotStatus.textContent = "Co-pilot Chris is ready for launch"
+      fuelStatus.textContent = "Fuel level high enough for launch"
+      cargoStatus = "Cargo mass low enough for launch"
     }
       
   
@@ -127,14 +94,16 @@ function formSubmission(document, list,  pilotName, copilotName, fuelLevel, carg
 //target retangle on top of screen for destination
 
 async function myFetch() {
-    let planetsReturned = "";
+  let planetsReturned = "";
 
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        });
+  planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+     return response.json() 
+  });
 
-    return planetsReturned.json(); 
+    
+      //return planetsReturned.json(); 
 
-    //return response.json()
+  return planetsReturned
 }
 
 /*window.addEventListener('load', async function(response){
@@ -168,8 +137,9 @@ async function myFetch() {
 
 function pickPlanet(planets) {
 
-   let planetSelector = Math.floor(Math.random() * (planets.length));
-    return planets[planetSelector].text
+  let planetSelector = Math.floor(Math.random() * (planets.length));
+    
+  return planets[planetSelector].text
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;

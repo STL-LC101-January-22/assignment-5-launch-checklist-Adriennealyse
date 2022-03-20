@@ -63,7 +63,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       launchStatus.textContent = "Shuttle not ready for launch"
       launchStatus.style.color = "rgb(199, 37, 78)"
       
-    } else if (cargoMass.value > 10000) {
+    } else if (cargoLevel.value > 10000) {
       list.style.visibility = "visible"
       cargoStatus.textContent = "Cargo mass too heavy for launch"
       launchStatus.textContent = "Shuttle not ready for launch"

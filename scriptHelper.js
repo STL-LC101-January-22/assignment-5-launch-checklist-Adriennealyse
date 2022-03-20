@@ -14,7 +14,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                     <li>Number of Moons: </li>
                 </ol>
                 <img src="">
-   */
+   </img>*/
 }
 
 //. validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate.
@@ -54,7 +54,7 @@ function formSubmission(document, list,  pilotName, copilotName, fuelLevel, carg
    let pilotStatus = document.getElementById("pilotStatus")
    let copilotStatus = document.getElementById("copilotStatus")
    let fuelStatus = document.getElementById("fuelStatus")
-   let cargoStatus = document.getElementById("cargoStatus")
+   cargoStatus = document.getElementById("cargoStatus")
    let launchStatus = document.getElementById("launchStatus")
 
     list.style.visbility = "hidden"

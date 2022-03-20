@@ -48,7 +48,7 @@ function validateInput(testInput) {
 
 
 
-function formSubmission(document, list,  pilotName, copilotName, fuelLevel, cargoLevel) {
+function formSubmission(document, list,  pilotName, copilotName, fuelLevel, cargoStatus) {
    //validateInput(formField)
    list = document.getElementById("faultyItems");
    let pilotStatus = document.getElementById("pilotStatus")

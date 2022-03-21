@@ -45,8 +45,8 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
 
    copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`
    pilotStatus.textContent = `Pilot ${pilot} is ready for launch`
-   list.style.visbility = "hidden"
-   launchStatus.style.color = "rgb(199, 37, 78)"
+   //list.style.visbility = "hidden"
+   //launchStatus.style.color = "rgb(199, 37, 78)"
 
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
       alert("All fields are required!");
@@ -59,7 +59,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
 
 
     // Presume that all data is good, otherwise the checks will update
-      list.style.visibility = "hidden"
+      list.style.visibility = "visible"
       launchStatus.textContent = "Shuttle is Ready for Launch"
       launchStatus.style.color = "rgb(65, 159, 106)"
       pilotStatus.textContent = "Pilot Chris is ready for launch"
@@ -67,11 +67,11 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       fuelStatus.textContent = "Fuel level high enough for launch"
       cargoStatus.textContent = "Cargo mass low enough for launch"
     
-    if (fuelLevel.vaue >= 0 && fuelLevel.value < 10000) {
-      list.style.visiblity = "visible"
-      fuelStatus.textContent = "Fuel level too low for launch"
-      launchStatus.textContent = "Shuttle Not Ready for Launch"
-      launchStatus.style.color = "rgb(199, 37, 78)"
+    if (fuelLevel.value < 10000) {
+      list.style.visiblity = "Lauch Check 1"
+      fuelStatus.textContent = "Lauch Check 2"
+      launchStatus.textContent = "Lauch Check 3"
+      launchStatus.style.color = "Lauch Check 4"
       //cargoStatus.textContent = "Cargo mass low enough for launch";
       //copilotStatus.textContent = "Co-pilot Bob is ready for launch";
       //pilotStatus.textContent = "Pilot Chris is ready for launch";
@@ -79,10 +79,10 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
     }
     
     if (cargoLevel.value > 10000) {
-      list.style.visibility = "visible"
-      cargoStatus.textContent = "Cargo mass too heavy for launch"
-      launchStatus.textContent = "Shuttle Not Ready for Launch"
-      launchStatus.style.color = "rgb(199, 37, 78)"
+      list.style.visibility = "Lauch Check 5"
+      cargoStatus.textContent = "Lauch Check 6"
+      launchStatus.textContent = "Lauch Check 7"
+      launchStatus.style.color = "Lauch Check 8"
       //fuelStatus.textContent = "Fuel level high enough for launch";
       //pilotStatus.textContent = "Pilot Chris is ready for launch";
       //copilotStatus.textContent = "Co-pilot Bob is ready for launch"

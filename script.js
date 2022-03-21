@@ -1,7 +1,7 @@
 // Write your JavaScript code here!
 
-// const {  formSubmission,  validateInput  } = require("./scriptHelper")
-// import "./scriptHelper";
+const {  formSubmission,  validateInput  } = require("./scriptHelper")
+require = "./scriptHelper";
 
 const divForm = document.querySelector('.launchForm');
 const form = document.querySelector('input[value="submit"]')  // ('.testForm') // document.getElementById('.testForm'); /* correct */

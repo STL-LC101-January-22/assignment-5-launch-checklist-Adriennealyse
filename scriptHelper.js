@@ -51,10 +51,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
       alert("All fields are required!");
       
-    } else if (validateInput(pilot) === "Is a Number" || 
-               validateInput(copilot) === "Is a Number" || 
-               validateInput(fuelLevel) === "Not a Number" || 
-               validateInput(cargoLevel) === "Not a Number") {
+    } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
       alert("Please provide valid information");
     }
    
@@ -64,20 +61,20 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
     // Presume that all data is good, otherwise the checks will update
       list.style.visibility = "visible"
       launchStatus.textContent = "Shuttle is Ready for Launch"
-      //launchStatus.style.color = "rgb(65, 159, 106)"
-      //pilotStatus.textContent = "Pilot Chris is ready for launch"
-      //copilotStatus.textContent = "Co-pilot Bob is ready for launch"
+      launchStatus.style.color = "rgb(65, 159, 106)"
+      pilotStatus.textContent = "Pilot Chris is ready for launch"
+      copilotStatus.textContent = "Co-pilot Bob is ready for launch"
       fuelStatus.textContent = "Fuel level high enough for launch"
-      //cargoStatus.textContent = "Cargo mass low enough for launch"
+      cargoStatus.textContent = "Cargo mass low enough for launch"
     
     if (fuelLevel.value < 10000) {
       list.style.visiblity = "visible"
       fuelStatus.textContent = "Fuel level too low for launch"
       launchStatus.textContent = "Shuttle Not Ready for Launch"
       launchStatus.style.color = "rgb(199, 37, 78)"
-      cargoStatus.textContent = "Cargo mass low enough for launch";
-      copilotStatus.textContent = "Co-pilot Bob is ready for launch";
-      pilotStatus.textContent = "Pilot Chris is ready for launch";
+      //cargoStatus.textContent = "Cargo mass low enough for launch";
+      //copilotStatus.textContent = "Co-pilot Bob is ready for launch";
+      //pilotStatus.textContent = "Pilot Chris is ready for launch";
 
     }
     
@@ -86,20 +83,20 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       cargoStatus.textContent = "Cargo mass too heavy for launch"
       launchStatus.textContent = "Shuttle Not Ready for Launch"
       launchStatus.style.color = "rgb(199, 37, 78)"
-      fuelStatus.textContent = "Fuel level high enough for launch";
-      pilotStatus.textContent = "Pilot Chris is ready for launch";
-      copilotStatus.textContent = "Co-pilot Bob is ready for launch"
+      //fuelStatus.textContent = "Fuel level high enough for launch";
+      //pilotStatus.textContent = "Pilot Chris is ready for launch";
+      //copilotStatus.textContent = "Co-pilot Bob is ready for launch"
       
     }
     
     if (cargoLevel.value > 10000 && fuelLevel.value < 10000) {
-      list.style.visibility = "visible"
-      launchStatus.style.color = "rgb(199, 37, 78)"
-      launchStatus.textContent = "Shuttle Not Ready for Launch"
-      copilotStatus.textContent = "Co-pilot Bob is ready for launch";
-      pilotStatus.textContent = "Pilot Chris is ready for launch";
-      fuelStatus.textContent = "Fuel level too low for launch";
-      cargoStatus.textContent = "Cargo mass too heavy for launch";
+      //list.style.visibility = "visible"
+      //launchStatus.style.color = "rgb(199, 37, 78)"
+      //launchStatus.textContent = "Shuttle Not Ready for Launch"
+      //copilotStatus.textContent = "Co-pilot Bob is ready for launch";
+      //pilotStatus.textContent = "Pilot Chris is ready for launch";
+      //fuelStatus.textContent = "Fuel level too low for launch";
+      //cargoStatus.textContent = "Cargo mass too heavy for launch";
 
 
     }

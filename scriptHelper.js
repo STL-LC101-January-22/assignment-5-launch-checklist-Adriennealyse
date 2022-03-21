@@ -86,7 +86,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
     if (cargoLevel.value > 10000) {
       list.style.visbility = "visible"
       cargoStatus.innerHTML = "Cargo mass too heavy for launch"
-      launchStatus.innnerHTML = "Shuttle Not Ready for Launch"
+      launchStatus.textContent = "Shuttle Not Ready for Launch"
       launchStatus.style.color = "rgb(199, 37, 78)"
     } else {
       list.style.visbility = "visible"

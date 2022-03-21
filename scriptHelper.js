@@ -74,9 +74,10 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       launchStatus.innnerHTML = "Shuttle Not Ready for Launch"
       launchStatus.style.color = "rgb(199, 37, 78)"
     } else {
-      launchStatus.innerHTML = "Shuttle is Ready for Launch"
-      fuelStatus.innerHTML = "Fuel level high enough for launch"
-      launchStatus.style.color = "rgb(65, 159, 106)"
+      list.style.visbility = "visible"
+      //launchStatus.innerHTML = "Shuttle is Ready for Launch"
+      //fuelStatus.innerHTML = "Fuel level high enough for launch"
+      //launchStatus.style.color = "rgb(65, 159, 106)"
       pilotStatus.innerHTML = "Pilot Chris is ready for launch"
       copilotStatus.innerHTML = "Co-pilot Bob is ready for launch"
     }
@@ -88,9 +89,10 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       launchStatus.innnerHTML = "Shuttle Not Ready for Launch"
       launchStatus.style.color = "rgb(199, 37, 78)"
     } else {
-      launchStatus.innerHTML = "Shuttle is Ready for Launch"
-      cargoStatus.innerHTL = "Cargo mass low enough for launch"
-      launchStatus.style.color = "rgb(65, 159, 106)"
+      list.style.visbility = "visible"
+      //launchStatus.innerHTML = "Shuttle is Ready for Launch"
+      //cargoStatus.innerHTL = "Cargo mass low enough for launch"
+      //launchStatus.style.color = "rgb(65, 159, 106)"
       pilotStatus.innerHTML = "Pilot Chris is ready for launch"
       copilotStatus.innerHTML = "Co-pilot Bob is ready for launch"
     }

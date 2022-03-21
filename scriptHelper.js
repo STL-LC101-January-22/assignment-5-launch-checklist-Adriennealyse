@@ -59,7 +59,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
 
 
     // Presume that all data is good, otherwise the checks will update
-      list.style.visibility = "visible"
+      list.style.visibility = "hidden"
       launchStatus.textContent = "Shuttle is Ready for Launch"
       launchStatus.style.color = "rgb(65, 159, 106)"
       pilotStatus.textContent = "Pilot Chris is ready for launch"
@@ -67,7 +67,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       fuelStatus.textContent = "Fuel level high enough for launch"
       cargoStatus.textContent = "Cargo mass low enough for launch"
     
-    if (fuelLevel.value < 10000) {
+    if (fuelLevel.vaue >= 0 && fuelLevel.value < 10000) {
       list.style.visiblity = "visible"
       fuelStatus.textContent = "Fuel level too low for launch"
       launchStatus.textContent = "Shuttle Not Ready for Launch"

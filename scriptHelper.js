@@ -1,12 +1,11 @@
 // Write your helper functions here!
-require('isomorphic-fetch');
+// require('isomorphic-fetch');
 
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
    let div = document.getElementById("missionTarget");
-   div.innerText =
-   `
+   div.innerHTML = `
                 <h2>Mission Destination</h2>
                 <ol>
                     <li>Name: ${name} </li>
@@ -22,19 +21,21 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 //. validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate.
 
 function validateInput(testInput) {
-  if (testInput === "") {
+  console.log('validInput is checking ' + testInput)
+  if (testInput === "" || testInput === null) {
     return "Empty";
-    } else if (isNaN(testInput) === false ) {
-      return "Is a Number";
-    } else if (isNaN(testInput) === true) {
-      return "Not a Number";
-    }
+  } else if (isNaN(testInput) === false ) {
+    return "Is a Number";
+  } else if (isNaN(testInput) === true) {
+    return "Not a Number";
+  }
 }
 
 
 
 function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) {
    //validateInput(formField)
+   alert('Inside form submission')
    list = document.getElementById("faultyItems");
    let pilotStatus = document.getElementById("pilotStatus")
    let copilotStatus = document.getElementById("copilotStatus")
@@ -45,17 +46,29 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
    copilotStatus.textContent = `Copilot ${copilot} is ready for launch`
    pilotStatus.textContent = `Pilot ${pilot} is ready to launch`
    list.style.visbility = "hidden"
+   launchStatus.style.color = "rgb(199, 37, 78)"
 
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
       alert("All fields are required!");
       
-    } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot === "Is a Number") || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
-      //alert("Please provide valid information");
+    } else if (validateInput(pilot) === "Is a Number" || 
+               validateInput(copilot) === "Is a Number" || 
+               validateInput(fuelLevel) === "Not a Number" || 
+               validateInput(cargoLevel) === "Not a Number") {
+      alert("Please provide valid information");
     }
    
     //Call validateInput here(check for empty,check for type)
 
 
+    // Presume that all data is good, otherwise the checks will update
+      list.style.visibility = "visible"
+      launchStatus.textContent = "Shuttle is Ready for Launch"
+      launchStatus.style.color = "rgb(65, 159, 106)"
+      //pilotStatus.textContent = "Pilot Chris is ready for launch"
+      //copilotStatus.textContent = "Co-pilot Bob is ready for launch"
+      //fuelStatus.textContent = "Fuel level high enough for launch"
+      //cargoStatus.textContent = "Cargo mass low enough for launch"
     
     if (fuelLevel.value < 10000) {
       list.style.visiblity = "visible"
@@ -66,7 +79,9 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       copilotStatus.textContent = "Co-pilot Bob is ready for launch";
       pilotStatus.textContent = "Pilot Chris is ready for launch";
 
-    } else if (cargoLevel.value > 10000) {
+    }
+    
+    if (cargoLevel.value > 10000) {
       list.style.visibility = "visible"
       cargoStatus.textContent = "Cargo mass too heavy for launch"
       launchStatus.textContent = "Shuttle Not Ready for Launch"
@@ -75,7 +90,9 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       pilotStatus.textContent = "Pilot Chris is ready for launch";
       copilotStatus.textContent = "Co-pilot Bob is ready for launch"
       
-    } else if (cargoLevel.value > 10000 && fuelLevel.value < 10000) {
+    }
+    
+    if (cargoLevel.value > 10000 && fuelLevel.value < 10000) {
       list.style.visibility = "visible"
       launchStatus.style.color = "rgb(199, 37, 78)"
       launchStatus.textContent = "Shuttle Not Ready for Launch"
@@ -85,15 +102,9 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       cargoStatus.textContent = "Cargo mass too heavy for launch";
 
 
-    } else {
-      list.style.visibility = "visible"
-      launchStatus.textContent = "Shuttle is Ready for Launch"
-      launchStatus.style.color = "rgb(65, 159, 106)"
-      pilotStatus.textContent = "Pilot Chris is ready for launch"
-      copilotStatus.textContent = "Co-pilot Bob is ready for launch"
-      fuelStatus.textContent = "Fuel level high enough for launch"
-      cargoStatus.textContent = "Cargo mass low enough for launch"
     }
+    
+
       
   
 
@@ -105,6 +116,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
 //target retangle on top of screen for destination
 
 async function myFetch() {
+
   let planetsReturned = "";
 
   planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
@@ -146,13 +158,17 @@ async function myFetch() {
 
 function pickPlanet(planets) {
 
+  if ( planets === '' || planets === null) {
+    alert('Variable planets is null or empty')
+    return null
+  }
   let planetSelector = Math.floor(Math.random() * (planets.length));
     
-  return planets[planetSelector].text
+  return planets[planetSelector]
 }
 
-module.exports.addDestinationInfo = addDestinationInfo;
-module.exports.validateInput = validateInput;
-module.exports.formSubmission = formSubmission;
-module.exports.pickPlanet = pickPlanet; 
-module.exports.myFetch = myFetch;
+// module.exports.addDestinationInfo = addDestinationInfo;
+// module.exports.validateInput = validateInput;
+// module.exports.formSubmission = formSubmission;
+// module.exports.pickPlanet = pickPlanet; 
+// module.exports.myFetch = myFetch;

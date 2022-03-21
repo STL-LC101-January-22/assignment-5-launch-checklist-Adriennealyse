@@ -46,7 +46,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
    
-   list.style.visbility = "hidden"
+   list.style.visibility = "hidden"
    //launchStatus.style.color = "rgb(199, 37, 78)"
 
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
@@ -69,12 +69,12 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
       //cargoStatus.textContent = "Cargo mass low enough for launch"
     
     if (fuelLevel.value < 10000) {
-      list.style.visbility = "visible"
+      list.style.visibility = "visible"
       fuelStatus.innerHTML = "Fuel level too low for launch"
       launchStatus.innnerHTML = "Shuttle Not Ready for Launch"
       launchStatus.style.color = "rgb(199, 37, 78)"
     } else {
-      list.style.visbility = "visible"
+      list.style.visibility = "visible"
       //launchStatus.innerHTML = "Shuttle is Ready for Launch"
       //fuelStatus.innerHTML = "Fuel level high enough for launch"
       //launchStatus.style.color = "rgb(65, 159, 106)"
@@ -84,12 +84,12 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
     
     
     if (cargoLevel.value > 10000) {
-      list.style.visbility = "visible"
+      list.style.visibility = "visible"
       cargoStatus.innerHTML = "Cargo mass too heavy for launch"
       launchStatus.textContent = "Shuttle Not Ready for Launch"
       launchStatus.style.color = "rgb(199, 37, 78)"
     } else {
-      list.style.visbility = "visible"
+      list.style.visibility = "visible"
       //launchStatus.innerHTML = "Shuttle is Ready for Launch"
       //cargoStatus.innerHTL = "Cargo mass low enough for launch"
       //launchStatus.style.color = "rgb(65, 159, 106)"
@@ -100,7 +100,7 @@ function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) 
     
     
     if (cargoLevel.value < 10000 && fuelLevel.value > 10000) {
-      list.style.visbility = "visible"
+      list.style.visibility = "visible"
       launchStatus.innerHTML = "Shuttle is Ready for Launch"
       launchStatus.style.color = "rgb(65, 159, 106)"
     }

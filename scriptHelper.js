@@ -35,7 +35,7 @@ function validateInput(testInput) {
 
 function formSubmission(document, list,  pilot, copilot, fuelLevel, cargoLevel) {
    //validateInput(formField)
-   alert('Inside form submission')
+   
    list = document.getElementById("faultyItems");
    let pilotStatus = document.getElementById("pilotStatus")
    let copilotStatus = document.getElementById("copilotStatus")

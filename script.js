@@ -4,7 +4,7 @@ const {  formSubmission,  validateInput  } = require("./scriptHelper")
 require = "./scriptHelper";
 
 //const divForm = document.querySelector('.launchForm');
-const form = document.querySelector('form')  
+//const form = document.querySelector('form')  
 //const form2 = document.getElementById('testForm');
 
 
@@ -12,7 +12,8 @@ const form = document.querySelector('form')
 window.addEventListener("load", function(event) {
     event.preventDefault();  // Prevent this form from auto submitting
 
-
+    list = document.getElementById("faultyItems");
+    list.style.visibility = "hidden"
     
    let thePlanet = "" 
    let listedPlanets = "";
@@ -50,9 +51,6 @@ window.addEventListener("load", function(event) {
        
        let cargoLevel = document.querySelector("input[name=cargoMass]").value;
        //let cargoLevel = cargo.value;
-
-       list = document.getElementById("faultyItems");
-       list.style.visibility = "hidden"
        
 
        formSubmission(document, list,  pilotName, copilotName, fuelLevel, cargoLevel)

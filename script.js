@@ -1,6 +1,6 @@
 // Write your JavaScript code here!
 
-const {  formSubmission,  validateInput  } = require("./scriptHelper")
+//const {  formSubmission,  validateInput  } = require("./scriptHelper")
 require = "./scriptHelper";
 
 //const divForm = document.querySelector('.launchForm');
@@ -22,7 +22,7 @@ window.addEventListener("load", function(event) {
    
   
    listedPlanetsResponse.then(function (result) {
-       sleep(2)
+       //sleep(2)
        listedPlanets = result;
        console.log(listedPlanets);
        console.log('Listed Planets : ' + JSON.stringify(listedPlanets) )
